@@ -3,7 +3,7 @@
 public class Courant
 {
     private string _numero;
-    private double _ligneDeCredit, _solde;
+    private double _ligneDeCredit, _solde = 0;
     private Personne _titulaire;
 
     public string Numero
