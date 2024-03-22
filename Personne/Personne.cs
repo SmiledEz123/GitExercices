@@ -1,7 +1,8 @@
 ﻿namespace Personne
 {
-    public class Class1
+    public class Personne
     {
-
+        public string Nom, Premon;
+        public DateTime DateNaiss;
     }
 }

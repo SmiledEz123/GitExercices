@@ -17,7 +17,7 @@ namespace Courant
 
         public void Retrait(double Montant)
         {
-            if (Solde - Montant < -LigneDeCredit)
+            if (Solde - Montant <= -LigneDeCredit)
             {
                 return;
             }
