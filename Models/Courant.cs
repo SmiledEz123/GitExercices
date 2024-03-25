@@ -6,6 +6,11 @@ public class Courant
     private double _ligneDeCredit, _solde = 0;
     private Personne _titulaire;
 
+    public override string ToString()
+    {
+        return $"Bonjour {_titulaire.Premon} {_titulaire.Nom} Voici votre solde : {_solde}";
+    }
+
     public string Numero
     {
         get
@@ -37,7 +42,7 @@ public class Courant
         }
     }
 
-    public double Solde
+    public virtual double Solde
     {
         get
         {
@@ -63,7 +68,7 @@ public class Courant
         }
     }
 
-    public void Depot(double Montant)
+    public virtual void Depot(double Montant)
     {
         if (Montant > 0)
         {
@@ -72,7 +77,7 @@ public class Courant
         else { Console.WriteLine("Tu peux pas deposser du negatif"); }
     }
 
-    public void Retrait(double Montant)
+    public virtual void Retrait(double Montant)
     {
         if (Montant <= 0)
         { Console.WriteLine("Pas solde negatif");
