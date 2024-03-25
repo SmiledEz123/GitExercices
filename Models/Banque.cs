@@ -40,5 +40,26 @@ namespace Models
                 set
                 { _nomDeLaBanque = value; }
             }
-        } 
+
+        public void AvoirDesComptes(Personne personne)
+        {
+            Courant courant = new Courant();
+            foreach (KeyValuePair<string,Courant> c in compte)
+            {
+                Console.WriteLine(compte.Count);
+                Personne test = c.Value.Titulaire;
+                Console.WriteLine(test.Premon);
+                Console.WriteLine(personne.Premon);
+                if (test == personne)
+                {
+                    Console.WriteLine("Avant Ajout: " + courant.Solde);
+                    Console.WriteLine("Ce que ont ajoute: " + c.Value.Solde);
+                    courant.Depot(c.Value.Solde);
+                    Console.WriteLine("Apres Ajout: " + courant.Solde);
+                }
+                
+            }
+            Console.WriteLine("Voici les compte: " + courant.Solde);
+        }
+    } 
     }
