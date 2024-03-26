@@ -1,11 +1,19 @@
 ﻿namespace Models;
 
-public class Courant
+public class Courant : Compte
 {
     private string _numero;
     private double _ligneDeCredit, _solde = 0;
     private Personne _titulaire;
 
+    protected override double CalculInteret()
+    {
+        if (_solde >= 0)
+        {
+            return (_solde *3)/100;
+        }
+        else { return (_solde*9.75)/100; }
+    }
     public override string ToString()
     {
         return $"Bonjour {_titulaire.Premon} {_titulaire.Nom} Voici votre solde : {_solde}";
@@ -42,7 +50,7 @@ public class Courant
         }
     }
 
-    public virtual double Solde
+    public double Solde
     {
         get
         {
@@ -68,7 +76,7 @@ public class Courant
         }
     }
 
-    public virtual void Depot(double Montant)
+    public override void Depot(double Montant)
     {
         if (Montant > 0)
         {
@@ -77,7 +85,7 @@ public class Courant
         else { Console.WriteLine("Tu peux pas deposser du negatif"); }
     }
 
-    public virtual void Retrait(double Montant)
+    public override void Retrait(double Montant)
     {
         if (Montant <= 0)
         { Console.WriteLine("Pas solde negatif");

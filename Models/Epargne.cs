@@ -6,13 +6,17 @@ using System.Threading.Tasks;
 
 namespace Models
 {
-    public class Epargne
+    public class Epargne : Compte
     {
         private string _numero;
         private double _solde = 0;
         private Personne _titulaire;
         private DateTime _dateDernierRetrai;
 
+        protected override double CalculInteret()
+        {
+            return (_solde * 4.5)/100;
+        }
         public override string ToString()
         {
             return $"Bonjour {_titulaire.Premon} {_titulaire.Nom} Voici votre solde : {_solde}";
@@ -56,7 +60,7 @@ namespace Models
             }
         }
 
-        public virtual void Depot(double Montant)
+        public override void Depot(double Montant)
         {
             if (Montant > 0)
             {
@@ -65,7 +69,7 @@ namespace Models
             else { Console.WriteLine("Tu peux pas deposser du negatif"); }
         }
 
-        public virtual void Retrait(double Montant)
+        public override void Retrait(double Montant)
         {
             if (Montant <= 0)
             {

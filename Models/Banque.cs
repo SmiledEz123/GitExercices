@@ -10,10 +10,10 @@ namespace Models
     public class Banque
     {
         private string _nomDeLaBanque;
-        private Dictionary<string,Courant> compte = new Dictionary<string, Courant>();
+        private Dictionary<string,Compte> compte = new Dictionary<string, Compte>();
 
 
-        public void Ajouter(Courant compte)
+        public void Ajouter(Compte compte)
         {
             this.compte.Add(compte.Numero,compte);
         }
@@ -25,10 +25,10 @@ namespace Models
             }
         }
 
-        public Courant this[string s]
+        public Compte this[string s]
         {
             get {
-                Courant p;
+                Compte p;
                 this.compte.TryGetValue(s, out p);
                 return p;
                 }
