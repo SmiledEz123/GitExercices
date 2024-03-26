@@ -8,7 +8,6 @@ namespace Models
 {
     public class Epargne : Compte
     {
-        private string _numero;
         private double _solde = 0;
         private Personne _titulaire;
         private DateTime _dateDernierRetrai;
@@ -20,18 +19,6 @@ namespace Models
         public override string ToString()
         {
             return $"Bonjour {_titulaire.Premon} {_titulaire.Nom} Voici votre solde : {_solde}";
-        }
-        public string Numero
-        {
-            get
-            {
-                return _numero;
-            }
-
-            set
-            {
-                _numero = value;
-            }
         }
 
         public double Solde

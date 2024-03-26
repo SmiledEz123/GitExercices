@@ -2,7 +2,6 @@
 
 public class Courant : Compte
 {
-    private string _numero;
     private double _ligneDeCredit, _solde = 0;
     private Personne _titulaire;
 
@@ -17,19 +16,6 @@ public class Courant : Compte
     public override string ToString()
     {
         return $"Bonjour {_titulaire.Premon} {_titulaire.Nom} Voici votre solde : {_solde}";
-    }
-
-    public string Numero
-    {
-        get
-        {
-            return _numero;
-        }
-
-        set
-        {
-            _numero = value;
-        }
     }
 
     public double LigneDeCredit

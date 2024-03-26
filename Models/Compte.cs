@@ -7,8 +7,9 @@ using System.Threading.Tasks;
 
 namespace Models
 {
-    public abstract class Compte
+    public abstract class Compte : IBanker, ICustomer
     {
+        private string _numero;
         private double _solde;
         private DateTime _dateDernierRetrai;
         private Personne _titulaire;
@@ -18,6 +19,18 @@ namespace Models
         public void AppliquerInteret()
         {
             _solde += _solde + CalculInteret();
+        }
+        public string Numero
+        {
+            get
+            {
+                return _numero;
+            }
+
+            set
+            {
+                _numero = value;
+            }
         }
 
         public virtual double Solde
@@ -50,7 +63,6 @@ namespace Models
                 _titulaire = value;
             }
         }
-
         public virtual void Depot(double Montant)
         {
             if (Montant > 0)

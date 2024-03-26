@@ -6,7 +6,19 @@ using System.Threading.Tasks;
 
 namespace Models
 {
-    internal class Interface
+    public interface ICustomer 
     {
+        double Solde {get; }
+        void Depot(double Montant);
+        void Retrait(double Montant);
+        
+    }
+
+    public interface IBanker: ICustomer
+    {
+        public void AppliquerInteret();
+        public Personne Titulaire { get; }
+        public string Numero { get; }
     }
 }
+
