@@ -12,6 +12,11 @@ namespace Models
         private Personne _titulaire;
         private DateTime _dateDernierRetrai;
 
+        public Epargne(Personne tit, string num) : base(tit, num)
+        {
+            _titulaire = tit;
+
+        }
         protected override double CalculInteret()
         {
             return (_solde * 4.5)/100;
@@ -21,20 +26,20 @@ namespace Models
             return $"Bonjour {_titulaire.Premon} {_titulaire.Nom} Voici votre solde : {_solde}";
         }
 
-        public double Solde
+        private double Solde
         {
             get
             {
                 return _solde;
             }
 
-            private set
+            set
             {
                 _solde = value;
             }
         }
 
-        public Personne Titulaire
+        Personne Titulaire
         {
             get
             {

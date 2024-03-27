@@ -5,6 +5,19 @@ public class Courant : Compte
     private double _ligneDeCredit, _solde = 0;
     private Personne _titulaire;
 
+    public Courant(Personne tit,string num) : base (tit,num)
+    {
+        _titulaire = tit;
+
+    }
+
+    public Courant(Personne tit, string num,double lC) : base(tit, num)
+    {
+        _titulaire = tit;
+        _ligneDeCredit = lC;
+
+    }
+
     protected override double CalculInteret()
     {
         if (_solde >= 0)
@@ -18,7 +31,7 @@ public class Courant : Compte
         return $"Bonjour {_titulaire.Premon} {_titulaire.Nom} Voici votre solde : {_solde}";
     }
 
-    public double LigneDeCredit
+    private double LigneDeCredit
     {
         
         get
@@ -36,20 +49,20 @@ public class Courant : Compte
         }
     }
 
-    public double Solde
+    private double Solde
     {
         get
         {
             return _solde;
         }
 
-        private set
+        set
         {
             _solde = value;
         }
     }
 
-    public Personne Titulaire
+    private Personne Titulaire
     {
         get
         {

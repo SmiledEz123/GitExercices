@@ -16,6 +16,18 @@ namespace Models
         private double _interet;
         protected abstract double CalculInteret();
 
+        public Compte(Personne tit, string num)
+        {
+            _numero = num;
+            _titulaire = tit;
+        }
+        public Compte(Personne tit, string num,double solde)
+        {
+            _numero = num;
+            _titulaire = tit;
+            _solde = solde;
+        }
+
         public void AppliquerInteret()
         {
             _solde += _solde + CalculInteret();

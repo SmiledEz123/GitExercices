@@ -37,7 +37,7 @@ namespace Models
             {
                 get
                 { return _nomDeLaBanque; }
-                set
+                init
                 { _nomDeLaBanque = value; }
             }
         } 
