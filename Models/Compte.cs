@@ -21,10 +21,8 @@ namespace Models
             _numero = num;
             _titulaire = tit;
         }
-        public Compte(Personne tit, string num,double solde)
+        public Compte(Personne tit, string num,double solde): this(tit,num)
         {
-            _numero = num;
-            _titulaire = tit;
             _solde = solde;
         }
 
