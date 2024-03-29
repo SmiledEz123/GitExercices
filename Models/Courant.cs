@@ -46,6 +46,7 @@ public class Courant : Compte
             {
                 _ligneDeCredit = value;
             }
+            else { throw new InvalidOperationException(); }
         }
     }
 

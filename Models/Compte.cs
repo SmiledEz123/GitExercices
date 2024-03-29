@@ -4,7 +4,6 @@ using System.Linq;
 using System.Reflection.Metadata;
 using System.Text;
 using System.Threading.Tasks;
-
 namespace Models
 {
     public abstract class Compte : IBanker, ICustomer
@@ -14,6 +13,7 @@ namespace Models
         private DateTime _dateDernierRetrai;
         private Personne _titulaire;
         private double _interet;
+        private const int minimomDepot= 0;
         protected abstract double CalculInteret();
 
         public Compte(Personne tit, string num)
@@ -77,27 +77,20 @@ namespace Models
         }
         public virtual void Depot(double Montant)
         {
-            if (Montant > 0)
-            {
-                Solde = Solde + Montant;
-            }
-            else { Console.WriteLine("Tu peux pas deposser du negatif"); }
+            if (Montant <= minimomDepot)
+                throw new ArgumentOutOfRangeException(nameof(Montant),$"le Montant doit etre plus grand que {minimomDepot}");
+
+            _solde += Montant;
         }
 
         public virtual void Retrait(double Montant)
         {
             if (Montant <= 0)
-            {
-                Console.WriteLine("Pas solde negatif ou null");
-                return;
-            }
+                throw new ArgumentOutOfRangeException(nameof(Montant), $"le Montant doit etre plus grand que {minimomDepot}");
             else
             {
                 if (Solde - Montant < 0)
-                {
-                    Console.WriteLine("Solde pas suffisant");
-                    return;
-                }
+                    throw new SoldeInsuffisantException("Pas assez d argent");
                 else
                 {
                     Solde = Solde - Montant;
