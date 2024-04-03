@@ -5,7 +5,8 @@ internal class Program
         static void Main(string[] args)
         {
         Courant courant = new Courant(new Personne() {Nom = "Jean", Premon ="Claude"},"1");
-        Banque banque = new Banque();
+        string test = null;
+        Banque banque = new Banque(test);
         Compte compte = new Courant(new Personne() { Nom = "Jean", Premon = "Claude" }, "1",1000) ;
         courant.Depot(100);
         banque.Ajouter(courant);

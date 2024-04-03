@@ -12,7 +12,10 @@ namespace Models
         private string _nomDeLaBanque;
         private Dictionary<string,Compte> compte = new Dictionary<string, Compte>();
 
-
+        public Banque(string nomDeLaBanque)
+        {
+                _nomDeLaBanque = nomDeLaBanque;
+        }
         public void Ajouter(Compte compte)
         {
             this.compte.Add(compte.Numero,compte);
